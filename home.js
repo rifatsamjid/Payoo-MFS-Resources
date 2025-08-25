@@ -188,4 +188,29 @@ document
   });
 
 // transaction
-// document.getElementById("transaction-history-parent").addEventListener("click",function())
+document.getElementById("transaction").addEventListener("click", function () {
+  const transactionContainer = document.getElementById("transaction-container");
+  transactionContainer.innerText = "";
+  for (const data of transactionData) {
+    const div = document.createElement("div");
+
+    div.innerHTML = `
+    <div
+          class="bg-white mt-5 p-3 rounded-xl flex justify-between items-center"
+        >
+          <div class="flex items-center gap-3">
+            <div class="p-3 rounded-full bg-[#f4f5f7]">
+              <img src="./assets/wallet1.png" alt="" />
+            </div>
+            <div>
+              <h1 class="font-semibold text-xl">${data.name}</h1>
+              <p class="text-[#080808b3]">${data.date}</p>
+            </div>
+          </div>
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+        `;
+
+    transactionContainer.appendChild(div);
+  }
+});
